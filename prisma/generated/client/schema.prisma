@@ -1,0 +1,127 @@
+// ==== Data Source & Generator ====
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+enum Role {
+  PATIENT
+  NUTRITIONIST
+  ADMIN
+}
+
+enum ActivityLevel {
+  SEDENTARY
+  LIGHT
+  MODERATE
+  HEAVY
+  VERY_HEAVY
+}
+
+enum StressLevel {
+  NORMAL
+  MODERATE
+  HIGH
+}
+
+enum PhysiologicalStatus {
+  NONE
+  PREGNANT_TRIMESTER_1
+  PREGNANT_TRIMESTER_2
+  PREGNANT_TRIMESTER_3
+  LACTATING_0_6_MONTHS
+  LACTATING_7_12_MONTHS
+}
+
+enum DietGoal {
+  MAINTAIN
+  GAIN_WEIGHT
+  LOSE_WEIGHT
+}
+
+model User {
+  id                  String                   @id @default(cuid())
+  email               String                   @unique
+  password            String
+  role                Role                     @default(PATIENT) // PATIENT, NUTRITIONIST, ADMIN
+  isEmailVerified     Boolean                  @default(false)
+  name                String
+  gender              String?
+  birthDate           DateTime?
+  height              Float?
+  weight              Float?
+  activityLevel       ActivityLevel?
+  stressLevel         StressLevel?
+  physiologicalStatus PhysiologicalStatus?
+  dietGoal            DietGoal?
+  bmrCalculations     BmrCalculation[]
+  nutritionRecords    NutritionRecord[]
+  formulaResults      NutritionFormulaResult[]
+  diseases            UserDisease[]
+  createdAt           DateTime                 @default(now())
+  updatedAt           DateTime                 @updatedAt
+}
+
+model BmrCalculation {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  bmr       Float
+  tee       Float
+  tea       Float
+  createdAt DateTime @default(now())
+}
+
+model NutritionRecord {
+  id              Int                     @id @default(autoincrement())
+  user            User                    @relation(fields: [userId], references: [id])
+  userId          String
+  energyTarget    Float
+  proteinTarget   Float
+  carbTarget      Float
+  fatTarget       Float
+  formulaResult   NutritionFormulaResult? @relation(name: "NutritionFormulaResultToNutritionRecord", fields: [formulaResultId], references: [id])
+  formulaResultId Int?                    @unique
+  createdAt       DateTime                @default(now())
+}
+
+model NutritionFormulaResult {
+  id                     Int              @id @default(autoincrement())
+  user                   User             @relation(fields: [userId], references: [id])
+  userId                 String
+  bmr                    Float
+  tee                    Float
+  tea                    Float
+  stressFactor           Float
+  activityFactor         Float
+  totalEnergyRequirement Float
+  proteinRequirement     Float
+  carbRequirement        Float
+  fatRequirement         Float
+  fluidRequirement       Float?
+  condition              String?
+  record                 NutritionRecord? @relation(name: "NutritionFormulaResultToNutritionRecord")
+  createdAt              DateTime         @default(now())
+}
+
+model Disease {
+  id    Int           @id @default(autoincrement())
+  name  String
+  users UserDisease[]
+}
+
+model UserDisease {
+  id        Int     @id @default(autoincrement())
+  user      User    @relation(fields: [userId], references: [id])
+  userId    String
+  disease   Disease @relation(fields: [diseaseId], references: [id])
+  diseaseId Int
+  notes     String? // catatan tambahan dari ahli gizi
+}
