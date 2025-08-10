@@ -71,7 +71,7 @@ model User {
 
 model BmrCalculation {
   id        Int      @id @default(autoincrement())
-  user      User     @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String
   bmr       Float
   tee       Float
@@ -83,6 +83,7 @@ model NutritionRecord {
   id              Int                     @id @default(autoincrement())
   user            User                    @relation(fields: [userId], references: [id])
   userId          String
+  bmrId           Int? // This must exist!
   energyTarget    Float
   proteinTarget   Float
   carbTarget      Float

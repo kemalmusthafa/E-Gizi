@@ -5,7 +5,7 @@ export const editUserService = async (req: Request, res: Response) => {
   const userId = req.params.id;
 
   if (!userId) {
-    throw new Error("User ID is required");
+    return res.status(400).send({ message: "User ID is required" });
   }
   const updateUserData = await prisma.user.update({
     data: req.body,

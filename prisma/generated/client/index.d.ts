@@ -3966,6 +3966,7 @@ export namespace Prisma {
 
   export type NutritionRecordAvgAggregateOutputType = {
     id: number | null
+    bmrId: number | null
     energyTarget: number | null
     proteinTarget: number | null
     carbTarget: number | null
@@ -3975,6 +3976,7 @@ export namespace Prisma {
 
   export type NutritionRecordSumAggregateOutputType = {
     id: number | null
+    bmrId: number | null
     energyTarget: number | null
     proteinTarget: number | null
     carbTarget: number | null
@@ -3985,6 +3987,7 @@ export namespace Prisma {
   export type NutritionRecordMinAggregateOutputType = {
     id: number | null
     userId: string | null
+    bmrId: number | null
     energyTarget: number | null
     proteinTarget: number | null
     carbTarget: number | null
@@ -3996,6 +3999,7 @@ export namespace Prisma {
   export type NutritionRecordMaxAggregateOutputType = {
     id: number | null
     userId: string | null
+    bmrId: number | null
     energyTarget: number | null
     proteinTarget: number | null
     carbTarget: number | null
@@ -4007,6 +4011,7 @@ export namespace Prisma {
   export type NutritionRecordCountAggregateOutputType = {
     id: number
     userId: number
+    bmrId: number
     energyTarget: number
     proteinTarget: number
     carbTarget: number
@@ -4019,6 +4024,7 @@ export namespace Prisma {
 
   export type NutritionRecordAvgAggregateInputType = {
     id?: true
+    bmrId?: true
     energyTarget?: true
     proteinTarget?: true
     carbTarget?: true
@@ -4028,6 +4034,7 @@ export namespace Prisma {
 
   export type NutritionRecordSumAggregateInputType = {
     id?: true
+    bmrId?: true
     energyTarget?: true
     proteinTarget?: true
     carbTarget?: true
@@ -4038,6 +4045,7 @@ export namespace Prisma {
   export type NutritionRecordMinAggregateInputType = {
     id?: true
     userId?: true
+    bmrId?: true
     energyTarget?: true
     proteinTarget?: true
     carbTarget?: true
@@ -4049,6 +4057,7 @@ export namespace Prisma {
   export type NutritionRecordMaxAggregateInputType = {
     id?: true
     userId?: true
+    bmrId?: true
     energyTarget?: true
     proteinTarget?: true
     carbTarget?: true
@@ -4060,6 +4069,7 @@ export namespace Prisma {
   export type NutritionRecordCountAggregateInputType = {
     id?: true
     userId?: true
+    bmrId?: true
     energyTarget?: true
     proteinTarget?: true
     carbTarget?: true
@@ -4158,6 +4168,7 @@ export namespace Prisma {
   export type NutritionRecordGroupByOutputType = {
     id: number
     userId: string
+    bmrId: number | null
     energyTarget: number
     proteinTarget: number
     carbTarget: number
@@ -4188,6 +4199,7 @@ export namespace Prisma {
   export type NutritionRecordSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
+    bmrId?: boolean
     energyTarget?: boolean
     proteinTarget?: boolean
     carbTarget?: boolean
@@ -4201,6 +4213,7 @@ export namespace Prisma {
   export type NutritionRecordSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
+    bmrId?: boolean
     energyTarget?: boolean
     proteinTarget?: boolean
     carbTarget?: boolean
@@ -4214,6 +4227,7 @@ export namespace Prisma {
   export type NutritionRecordSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
+    bmrId?: boolean
     energyTarget?: boolean
     proteinTarget?: boolean
     carbTarget?: boolean
@@ -4227,6 +4241,7 @@ export namespace Prisma {
   export type NutritionRecordSelectScalar = {
     id?: boolean
     userId?: boolean
+    bmrId?: boolean
     energyTarget?: boolean
     proteinTarget?: boolean
     carbTarget?: boolean
@@ -4235,7 +4250,7 @@ export namespace Prisma {
     createdAt?: boolean
   }
 
-  export type NutritionRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "energyTarget" | "proteinTarget" | "carbTarget" | "fatTarget" | "formulaResultId" | "createdAt", ExtArgs["result"]["nutritionRecord"]>
+  export type NutritionRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "bmrId" | "energyTarget" | "proteinTarget" | "carbTarget" | "fatTarget" | "formulaResultId" | "createdAt", ExtArgs["result"]["nutritionRecord"]>
   export type NutritionRecordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     formulaResult?: boolean | NutritionRecord$formulaResultArgs<ExtArgs>
@@ -4258,6 +4273,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       userId: string
+      bmrId: number | null
       energyTarget: number
       proteinTarget: number
       carbTarget: number
@@ -4691,6 +4707,7 @@ export namespace Prisma {
   interface NutritionRecordFieldRefs {
     readonly id: FieldRef<"NutritionRecord", 'Int'>
     readonly userId: FieldRef<"NutritionRecord", 'String'>
+    readonly bmrId: FieldRef<"NutritionRecord", 'Int'>
     readonly energyTarget: FieldRef<"NutritionRecord", 'Float'>
     readonly proteinTarget: FieldRef<"NutritionRecord", 'Float'>
     readonly carbTarget: FieldRef<"NutritionRecord", 'Float'>
@@ -8609,6 +8626,7 @@ export namespace Prisma {
   export const NutritionRecordScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
+    bmrId: 'bmrId',
     energyTarget: 'energyTarget',
     proteinTarget: 'proteinTarget',
     carbTarget: 'carbTarget',
@@ -9012,6 +9030,7 @@ export namespace Prisma {
     NOT?: NutritionRecordWhereInput | NutritionRecordWhereInput[]
     id?: IntFilter<"NutritionRecord"> | number
     userId?: StringFilter<"NutritionRecord"> | string
+    bmrId?: IntNullableFilter<"NutritionRecord"> | number | null
     energyTarget?: FloatFilter<"NutritionRecord"> | number
     proteinTarget?: FloatFilter<"NutritionRecord"> | number
     carbTarget?: FloatFilter<"NutritionRecord"> | number
@@ -9025,6 +9044,7 @@ export namespace Prisma {
   export type NutritionRecordOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
+    bmrId?: SortOrderInput | SortOrder
     energyTarget?: SortOrder
     proteinTarget?: SortOrder
     carbTarget?: SortOrder
@@ -9042,6 +9062,7 @@ export namespace Prisma {
     OR?: NutritionRecordWhereInput[]
     NOT?: NutritionRecordWhereInput | NutritionRecordWhereInput[]
     userId?: StringFilter<"NutritionRecord"> | string
+    bmrId?: IntNullableFilter<"NutritionRecord"> | number | null
     energyTarget?: FloatFilter<"NutritionRecord"> | number
     proteinTarget?: FloatFilter<"NutritionRecord"> | number
     carbTarget?: FloatFilter<"NutritionRecord"> | number
@@ -9054,6 +9075,7 @@ export namespace Prisma {
   export type NutritionRecordOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
+    bmrId?: SortOrderInput | SortOrder
     energyTarget?: SortOrder
     proteinTarget?: SortOrder
     carbTarget?: SortOrder
@@ -9073,6 +9095,7 @@ export namespace Prisma {
     NOT?: NutritionRecordScalarWhereWithAggregatesInput | NutritionRecordScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"NutritionRecord"> | number
     userId?: StringWithAggregatesFilter<"NutritionRecord"> | string
+    bmrId?: IntNullableWithAggregatesFilter<"NutritionRecord"> | number | null
     energyTarget?: FloatWithAggregatesFilter<"NutritionRecord"> | number
     proteinTarget?: FloatWithAggregatesFilter<"NutritionRecord"> | number
     carbTarget?: FloatWithAggregatesFilter<"NutritionRecord"> | number
@@ -9492,6 +9515,7 @@ export namespace Prisma {
   }
 
   export type NutritionRecordCreateInput = {
+    bmrId?: number | null
     energyTarget: number
     proteinTarget: number
     carbTarget: number
@@ -9504,6 +9528,7 @@ export namespace Prisma {
   export type NutritionRecordUncheckedCreateInput = {
     id?: number
     userId: string
+    bmrId?: number | null
     energyTarget: number
     proteinTarget: number
     carbTarget: number
@@ -9513,6 +9538,7 @@ export namespace Prisma {
   }
 
   export type NutritionRecordUpdateInput = {
+    bmrId?: NullableIntFieldUpdateOperationsInput | number | null
     energyTarget?: FloatFieldUpdateOperationsInput | number
     proteinTarget?: FloatFieldUpdateOperationsInput | number
     carbTarget?: FloatFieldUpdateOperationsInput | number
@@ -9525,6 +9551,7 @@ export namespace Prisma {
   export type NutritionRecordUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     userId?: StringFieldUpdateOperationsInput | string
+    bmrId?: NullableIntFieldUpdateOperationsInput | number | null
     energyTarget?: FloatFieldUpdateOperationsInput | number
     proteinTarget?: FloatFieldUpdateOperationsInput | number
     carbTarget?: FloatFieldUpdateOperationsInput | number
@@ -9536,6 +9563,7 @@ export namespace Prisma {
   export type NutritionRecordCreateManyInput = {
     id?: number
     userId: string
+    bmrId?: number | null
     energyTarget: number
     proteinTarget: number
     carbTarget: number
@@ -9545,6 +9573,7 @@ export namespace Prisma {
   }
 
   export type NutritionRecordUpdateManyMutationInput = {
+    bmrId?: NullableIntFieldUpdateOperationsInput | number | null
     energyTarget?: FloatFieldUpdateOperationsInput | number
     proteinTarget?: FloatFieldUpdateOperationsInput | number
     carbTarget?: FloatFieldUpdateOperationsInput | number
@@ -9555,6 +9584,7 @@ export namespace Prisma {
   export type NutritionRecordUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     userId?: StringFieldUpdateOperationsInput | string
+    bmrId?: NullableIntFieldUpdateOperationsInput | number | null
     energyTarget?: FloatFieldUpdateOperationsInput | number
     proteinTarget?: FloatFieldUpdateOperationsInput | number
     carbTarget?: FloatFieldUpdateOperationsInput | number
@@ -10234,6 +10264,7 @@ export namespace Prisma {
   export type NutritionRecordCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
+    bmrId?: SortOrder
     energyTarget?: SortOrder
     proteinTarget?: SortOrder
     carbTarget?: SortOrder
@@ -10244,6 +10275,7 @@ export namespace Prisma {
 
   export type NutritionRecordAvgOrderByAggregateInput = {
     id?: SortOrder
+    bmrId?: SortOrder
     energyTarget?: SortOrder
     proteinTarget?: SortOrder
     carbTarget?: SortOrder
@@ -10254,6 +10286,7 @@ export namespace Prisma {
   export type NutritionRecordMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
+    bmrId?: SortOrder
     energyTarget?: SortOrder
     proteinTarget?: SortOrder
     carbTarget?: SortOrder
@@ -10265,6 +10298,7 @@ export namespace Prisma {
   export type NutritionRecordMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
+    bmrId?: SortOrder
     energyTarget?: SortOrder
     proteinTarget?: SortOrder
     carbTarget?: SortOrder
@@ -10275,6 +10309,7 @@ export namespace Prisma {
 
   export type NutritionRecordSumOrderByAggregateInput = {
     id?: SortOrder
+    bmrId?: SortOrder
     energyTarget?: SortOrder
     proteinTarget?: SortOrder
     carbTarget?: SortOrder
@@ -10699,6 +10734,14 @@ export namespace Prisma {
     connect?: NutritionFormulaResultWhereUniqueInput
   }
 
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type UserUpdateOneRequiredWithoutNutritionRecordsNestedInput = {
     create?: XOR<UserCreateWithoutNutritionRecordsInput, UserUncheckedCreateWithoutNutritionRecordsInput>
     connectOrCreate?: UserCreateOrConnectWithoutNutritionRecordsInput
@@ -10715,14 +10758,6 @@ export namespace Prisma {
     delete?: NutritionFormulaResultWhereInput | boolean
     connect?: NutritionFormulaResultWhereUniqueInput
     update?: XOR<XOR<NutritionFormulaResultUpdateToOneWithWhereWithoutRecordInput, NutritionFormulaResultUpdateWithoutRecordInput>, NutritionFormulaResultUncheckedUpdateWithoutRecordInput>
-  }
-
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type UserCreateNestedOneWithoutFormulaResultsInput = {
@@ -11185,6 +11220,7 @@ export namespace Prisma {
   }
 
   export type NutritionRecordCreateWithoutUserInput = {
+    bmrId?: number | null
     energyTarget: number
     proteinTarget: number
     carbTarget: number
@@ -11195,6 +11231,7 @@ export namespace Prisma {
 
   export type NutritionRecordUncheckedCreateWithoutUserInput = {
     id?: number
+    bmrId?: number | null
     energyTarget: number
     proteinTarget: number
     carbTarget: number
@@ -11327,6 +11364,7 @@ export namespace Prisma {
     NOT?: NutritionRecordScalarWhereInput | NutritionRecordScalarWhereInput[]
     id?: IntFilter<"NutritionRecord"> | number
     userId?: StringFilter<"NutritionRecord"> | string
+    bmrId?: IntNullableFilter<"NutritionRecord"> | number | null
     energyTarget?: FloatFilter<"NutritionRecord"> | number
     proteinTarget?: FloatFilter<"NutritionRecord"> | number
     carbTarget?: FloatFilter<"NutritionRecord"> | number
@@ -11737,6 +11775,7 @@ export namespace Prisma {
   }
 
   export type NutritionRecordCreateWithoutFormulaResultInput = {
+    bmrId?: number | null
     energyTarget: number
     proteinTarget: number
     carbTarget: number
@@ -11748,6 +11787,7 @@ export namespace Prisma {
   export type NutritionRecordUncheckedCreateWithoutFormulaResultInput = {
     id?: number
     userId: string
+    bmrId?: number | null
     energyTarget: number
     proteinTarget: number
     carbTarget: number
@@ -11827,6 +11867,7 @@ export namespace Prisma {
   }
 
   export type NutritionRecordUpdateWithoutFormulaResultInput = {
+    bmrId?: NullableIntFieldUpdateOperationsInput | number | null
     energyTarget?: FloatFieldUpdateOperationsInput | number
     proteinTarget?: FloatFieldUpdateOperationsInput | number
     carbTarget?: FloatFieldUpdateOperationsInput | number
@@ -11838,6 +11879,7 @@ export namespace Prisma {
   export type NutritionRecordUncheckedUpdateWithoutFormulaResultInput = {
     id?: IntFieldUpdateOperationsInput | number
     userId?: StringFieldUpdateOperationsInput | string
+    bmrId?: NullableIntFieldUpdateOperationsInput | number | null
     energyTarget?: FloatFieldUpdateOperationsInput | number
     proteinTarget?: FloatFieldUpdateOperationsInput | number
     carbTarget?: FloatFieldUpdateOperationsInput | number
@@ -12030,6 +12072,7 @@ export namespace Prisma {
 
   export type NutritionRecordCreateManyUserInput = {
     id?: number
+    bmrId?: number | null
     energyTarget: number
     proteinTarget: number
     carbTarget: number
@@ -12084,6 +12127,7 @@ export namespace Prisma {
   }
 
   export type NutritionRecordUpdateWithoutUserInput = {
+    bmrId?: NullableIntFieldUpdateOperationsInput | number | null
     energyTarget?: FloatFieldUpdateOperationsInput | number
     proteinTarget?: FloatFieldUpdateOperationsInput | number
     carbTarget?: FloatFieldUpdateOperationsInput | number
@@ -12094,6 +12138,7 @@ export namespace Prisma {
 
   export type NutritionRecordUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
+    bmrId?: NullableIntFieldUpdateOperationsInput | number | null
     energyTarget?: FloatFieldUpdateOperationsInput | number
     proteinTarget?: FloatFieldUpdateOperationsInput | number
     carbTarget?: FloatFieldUpdateOperationsInput | number
@@ -12104,6 +12149,7 @@ export namespace Prisma {
 
   export type NutritionRecordUncheckedUpdateManyWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
+    bmrId?: NullableIntFieldUpdateOperationsInput | number | null
     energyTarget?: FloatFieldUpdateOperationsInput | number
     proteinTarget?: FloatFieldUpdateOperationsInput | number
     carbTarget?: FloatFieldUpdateOperationsInput | number

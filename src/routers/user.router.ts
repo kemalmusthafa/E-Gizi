@@ -28,10 +28,18 @@ export class UserRouter {
       "/:id",
       this.userController.editUser.bind(this.userController)
     );
+    //optional route to handle deletion without an ID
+    this.router.put("/", (_req, res) => {
+      return res.status(400).send({ message: "User ID is required" });
+    });
     this.router.delete(
       "/:id",
       this.userController.deleteUser.bind(this.userController)
     );
+    //optional route to handle deletion without an ID
+    this.router.delete("/", (_req, res) => {
+      return res.status(400).send({ message: "User ID is required" });
+    });
   }
 
   getRouter(): Router {

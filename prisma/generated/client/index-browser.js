@@ -151,6 +151,7 @@ exports.Prisma.BmrCalculationScalarFieldEnum = {
 exports.Prisma.NutritionRecordScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
+  bmrId: 'bmrId',
   energyTarget: 'energyTarget',
   proteinTarget: 'proteinTarget',
   carbTarget: 'carbTarget',
